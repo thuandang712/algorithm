@@ -16,21 +16,21 @@
 // buzz
 
 // console log
-function fizzbuzz() {
-    for (let i = 1; i <= 100; i++) {
-        if ( i % 3 === 0 && i % 5 === 0 ) {
-            console.log('fizzbuzz')
-        } else if ( i % 3 === 0 ) {
-            console.log('fizz') 
-        } else if ( i % 5 === 0 ) {
-            console.log('buzz') 
-        } else {
-            console.log(i)
-        }
-    }
-}
+// function fizzbuzz() {
+//     for (let i = 1; i <= 100; i++) {
+//         if ( i % 3 === 0 && i % 5 === 0 ) {
+//             console.log('fizzbuzz')
+//         } else if ( i % 3 === 0 ) {
+//             console.log('fizz') 
+//         } else if ( i % 5 === 0 ) {
+//             console.log('buzz') 
+//         } else {
+//             console.log(i)
+//         }
+//     }
+// }
 
-fizzbuzz()
+// fizzbuzz()
 
 // returns an array
 // function fizzbuzz() {
@@ -50,3 +50,15 @@ fizzbuzz()
 //     return arr;
 // }
 
+// n term of fizzbuzz
+function fizzBuzz(range, n) {
+    const arr = []
+    for ( i = 1; i <= range; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            arr.push(i)
+        }
+    }
+    return arr[n-1]
+}
+
+console.log(fizzBuzz(100, 2))
