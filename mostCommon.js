@@ -1,0 +1,37 @@
+// Given a string of random numbers, write an algo that returns the most repeated element in the string
+const mostCommon = (str) => {
+    if (str.length === 0) {
+        return 'empty string'
+    } 
+
+    const obj = {}
+
+    // turn str to an array
+    const arr = str.split('')  // O(n)
+    
+    // loop thru each element in the array
+    arr.forEach( ele => {   // O(n)
+        !obj[ele] ? obj[ele] = 1 : obj[ele]++
+    })
+    
+    // get an array of keys
+    let keys = Object.keys(obj) // O(n)
+    
+    // use reduce method to loop thru each key and compare values of each keys
+    let result = keys.reduce( (prevKey, curKey) =>  obj[prevKey] > obj[curKey] ? prevKey : curKey ) // O(n)
+    
+    return result
+}
+
+console.log(mostCommon('124019502598471234111112343434777777777777777777777777777777777734343434623895555555555555512342134'))
+
+// p = 0, c = 1 => obj[0] = 2 > obj[1] = 10 ? => p = 1
+// p = 1, c = 2 => obj[1] = 10 > obj[2] = 7 ? => p = 1
+// p = 1, c = 3 => obj[1] = 10 > obj[3] = 11 ? => p = 3
+// p = 3, c = 4 => obj[3] = 11 > obj[4] = 12 ? => p = 4 
+// p = 4, c = 5 => obj[4] = 12 > obj[5] = 16 ? => p = 5
+// p = 5, c = 6 => obj[5] = 16 > obj[6] = 1 ? => p = 5
+// p = 5, c = 7 => obj[5] = 16 > obj[7] = 35 ? => p = 7
+// p = 7, c = 8 => obj[7] = 35 > obj[8] = 2 ? => p = 7
+// p = 7, c = 9 => obj[7] = 35 > obj[9] = 3 ? => p = 7
+// 4 O(n) == O(n) ?
