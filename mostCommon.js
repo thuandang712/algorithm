@@ -3,6 +3,9 @@ const mostCommon = (str) => {
     if (str.length === 0) {
         return 'empty string'
     } 
+    if (isNaN(str)) {
+        return 'not a string of numbers'
+    }
 
     const obj = {}
 
@@ -23,7 +26,8 @@ const mostCommon = (str) => {
     return result
 }
 
-console.log(mostCommon('124019502598471234111112343434777777777777777777777777777777777734343434623895555555555555512342134'))
+let str = '1240195025984712341111123434347777777777777777788182394719283571923857118923651892737651083651873567777777777777777734343434623895555555555555512342134'
+console.log(mostCommon(str))
 
 // p = 0, c = 1 => obj[0] = 2 > obj[1] = 10 ? => p = 1
 // p = 1, c = 2 => obj[1] = 10 > obj[2] = 7 ? => p = 1
