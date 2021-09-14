@@ -14,6 +14,6 @@ const multiply = (arr) => {
 }
 
 
-const arr = [1,3,5,6,7]
+const arr = [1,3,5,6]
 //             i
 console.log(multiply(arr)) // [90, 30, 18, 15] // because 3 * 5 * 6 = 90
