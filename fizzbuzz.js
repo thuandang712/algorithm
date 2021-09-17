@@ -1,64 +1,49 @@
-// Fizz buzz.
-// from 1 to 100, return fizz for numbers that are divisible of 3,
-// return buzz for numbers that are divisible of 5
-// return fizzbuzz for numbers that are divisible by 3 & 5
-// otherwise, just return the number
-// Sample output from 1 to 10: 
-// 1 
-// 2
-// fizz
-// 4
-// buzz
-// fizz
-// 7
-// 8
-// fizz
-// buzz
+// Calculate the nth fizzBuzz
+// Fizzbuzz - conditions:
+// If a number is divisible by 3 - Fizz
+// If a number is divisible by 5 - Buzz
+// If a number is divisible by 3 and 5 - FizzBuzz
 
-// console log
-// function fizzbuzz() {
-//     for (let i = 1; i <= 100; i++) {
-//         if ( i % 3 === 0 && i % 5 === 0 ) {
-//             console.log('fizzbuzz')
-//         } else if ( i % 3 === 0 ) {
-//             console.log('fizz') 
-//         } else if ( i % 5 === 0 ) {
-//             console.log('buzz') 
-//         } else {
-//             console.log(i)
-//         }
-//     }
-// }
 
-// fizzbuzz()
-
-// returns an array
-// function fizzbuzz() {
-//     const arr = [];
-//     for (let i = 1; i <= 100; i++) {
-//         let current = i;
-//         if ( current % 3 === 0 && current % 5 === 0 ) {
-//             arr.push('fizzbuzz')
-//         } else if ( current % 3 === 0 ) {
-//             arr.push('fizz')
-//         } else if ( current % 5 === 0 ) {
-//             arr.push('buzz')
-//         } else {
-//             arr.push(current)
-//         }
-//     }
-//     return arr;
-// }
-
-// n term of fizzbuzz
-function fizzBuzz(range, n) {
-    const arr = []
-    for ( i = 1; i <= range; i++) {
-        if (i % 3 === 0 && i % 5 === 0) {
-            arr.push(i)
+function fizzBuzz(n) {
+    let counter = 1
+    let currentFizzBuzz = 0
+    // while the number of fizzBuzzes that if find, is less than N, keep going
+    while(currentFizzBuzz < n) {
+        if(counter % 3 === 0 && counter % 5 === 0) {
+            currentFizzBuzz++
+            if(currentFizzBuzz === n) {
+                return counter
+            }
         }
+        counter++
     }
-    return arr[n-1]
+    return counter
 }
 
-console.log(fizzBuzz(100, 2))
+// Hack - 
+// function fizzBuzzFast(n) {
+//     return n * 3 * 5
+// }
+
+console.log(fizzBuzz(40000))
+
+
+
+
+
+// function fizzBuzz(num) {
+//     for(let i = 1; i <= num; i++) {
+//         if(i % 3 === 0 && i % 5 === 0) {
+//             console.log('fizzBuzz')
+//         } else if(i % 5 === 0) {
+//             console.log('buzz')
+//         } else if(i % 3 === 0) {
+//             console.log('fizz')
+//         } else {
+//             console.log(i) 
+//         }
+//     }
+// }
+
+// fizzBuzz(100)
