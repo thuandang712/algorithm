@@ -18,30 +18,33 @@
 
 
 // O(n)
-function test(arr) {
-    // Cacheing
-    // O(n)
-    const totalProdcut = calculateProduct(arr)
-    const returnArray = []
-    // O(n)
-    for(let i = 0; i < arr.length; i++) {
-        let current = arr[i]
-        returnArray.push(totalProdcut / current)
-    }
-    return returnArray
-}
-function calculateProduct(arr) {
+// write a function that takes in a non-empty array of integers and returns an array of the same length where each element in the output array is equal to the product of every other number in the input array.
+
+// make function to calculate total product
+function totalProduct(arr) {
     let product = 1
-    for(let i = 0; i < arr.length; i++) {
-        let current = arr[i]
-        product = product * current
+    for (let i = 0; i < arr.length; i++) {
+        product = product * arr[i]
     }
     return product
 }
 
+// function product except self
+function productExceptSelf(arr) {
+    const product = totalProduct(arr)
 
-const arr = [4, 5, 6, 7]
-console.log(test(arr))
+    const result = []
+
+    for (let i = 0; i < arr.length; i++) {
+        result.push( product / arr[i] )
+    }
+
+    return result
+}
+
+const arr = [5,1,4,2]
+// output arr = [8,40,10,20]
+console.log(productExceptSelf(arr))
 
 
 

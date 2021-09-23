@@ -1,4 +1,4 @@
-const splitter1 = (arr, num) => {
+const splitter = (arr, num) => {
     if (num <= 0) return 'num not valid'
 
     const result = []
@@ -40,7 +40,7 @@ const num = 10
 
 const t0 = performance.now();
 
-splitter1(arr, num)
+splitter(arr, num)
 
 const t1 = performance.now();
 console.log(`Call to splitter took ${t1 - t0} milliseconds.`)
