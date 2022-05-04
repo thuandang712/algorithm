@@ -8,10 +8,10 @@ const anagram = (source, note) => {
     // turn str into array
     const sourceArr = source.split(" ")
     const noteArr = note.split(" ")
-    
+
     // store key/value pairs of source array
-    const sourceObj = makeObj(sourceArr) 
- 
+    const sourceObj = makeObj(sourceArr)
+
     // return true / false 
     for (let i of noteArr) {
         if (!sourceObj[i]) {

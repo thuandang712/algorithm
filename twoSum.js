@@ -3,7 +3,7 @@ const twoSum = (arr, targetNum) => {
     const obj = {}
 
     // loop over the arr
-    for(let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
         // let current element
         let current = arr[i]
         // calculate another number 
@@ -19,6 +19,17 @@ const twoSum = (arr, targetNum) => {
     return false;
 }
 
-const arr = [1,2,3,4,5,4,3,2,1]
+
+// const test = arr => {
+//     for (let i = 0; i < arr.length; i++) {
+//         console.log(i)
+//     }
+
+// }
+
+
+
+const arr = [1, 2, 3, 4, 5, 4, 3, 2, 1]
 const num = 7
 console.log(twoSum(arr, num))
+// test(arr)
