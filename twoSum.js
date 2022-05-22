@@ -30,6 +30,6 @@ const twoSum = (arr, targetNum) => {
 
 
 const arr = [1, 2, 3, 4, 5, 4, 3, 2, 1]
-const num = 7
+const num = 10
 console.log(twoSum(arr, num))
 // test(arr)
