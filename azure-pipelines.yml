@@ -27,4 +27,4 @@ steps:
     path: '.'
     name: 'thuanTest'
     scanSecrets: false
-    parameterFiles: variables.tfvar,variables2.tfvar
+    # parameterFiles: variables.tfvar,variables2.tfvar
