@@ -19,12 +19,12 @@ steps:
 - task: wiz@0
   inputs:
     command: 'iac'
-    clientid: 'wgxq75hrlndpbktx3eupevf2x3zwrl6mluqfnzev2oh2a7s5zmzhg'
-    secret: '6uFsERhZTK7jdOslmM2GUI8GRNEsidBAbWi5e8F8lKRIJj9O1VuoefQOqnEC9ZUg'
+    clientid: $(WIZ_CLIENT_ID)
+    secret: $(WIZ_CLIENT_SECRET)
     succeedOnFailures: false
     policyHitsOnly: false
     scanTags: "cicd=ado,app=terraform"
     path: '.'
-    name: 'thuan-test'
+    name: 'thuanTest'
     scanSecrets: false
-    # parameterFiles: variables.tfvar,variables2.tfvar
+    parameterFiles: variables.tfvar,variables2.tfvar
