@@ -21,6 +21,7 @@ steps:
     command: 'iac'
     clientid: $(WIZ_CLIENT_ID)
     secret: $(WIZ_CLIENT_SECRET)
+    wizCliPath: 'Users/thuan.dang'
     policyHitsOnly: true
     path: '.'
     name: 'thuanTest'
