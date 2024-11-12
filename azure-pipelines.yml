@@ -20,8 +20,8 @@ steps:
 - task: wiz@0
   inputs:
     command: 'iac'
-    clientid: wgxq75hrlndpbktx3eupevf2x3zwrl6mluqfnzev2oh2a7s5zmzhg
-    secret: 6uFsERhZTK7jdOslmM2GUI8GRNEsidBAbWi5e8F8lKRIJj9O1VuoefQOqnEC9ZUg
+    clientid: 'wgxq75hrlndpbktx3eupevf2x3zwrl6mluqfnzev2oh2a7s5zmzhg'
+    secret: '6uFsERhZTK7jdOslmM2GUI8GRNEsidBAbWi5e8F8lKRIJj9O1VuoefQOqnEC9ZUg'
     succeedOnFailures: false
     policyHitsOnly: false
     scanTags: "cicd=ado,app=terraform"
