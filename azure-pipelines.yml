@@ -51,4 +51,4 @@ steps:
     path: ${{ parameters.wizPath }}
     debug: ${{ parameters.wizDebug }}
 - bash: |
-    echo "##vso[task.addattachment type=dir;name=wiz-dir-AN.Ext.InstantAppraisalServiceApiModel.MavenPkg.CI-719377-237f8ed3-bbdc-4c9c-8020-36e9fa50aa79.json;]/tmp/wiz-dir-AN.Ext.InstantAppraisalServiceApiModel.MavenPkg.CI-719377-237f8ed3-bbdc-4c9c-8020-36e9fa50aa79.json"
+    echo "##vso[task.addattachment type=dir;name=wiz-dir-AN.Ext.InstantAppraisalServiceApiModel.MavenPkg.CI-719377-237f8ed3-bbdc-4c9c-8020-36e9fa50aa79.json;]/JS"
