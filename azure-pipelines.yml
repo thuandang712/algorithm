@@ -8,6 +8,27 @@ trigger:
 
 pool:
   name: Default
+
+parameters:
+  - name: wizClientid
+    type: string
+    default: 'wgxq75hrlndpbktx3eupevf2x3zwrl6mluqfnzev2oh2a7s5zmzhg'
+  - name: wizDebug
+    type: boolean
+    default: false
+  - name: wizPath
+    type: string
+    default: '.'
+  - name: wizPolicyHitsOnly
+    type: boolean
+    default: true
+  - name: wizScanPolicies
+    type: string
+    default: "thuan-test-wizcli, thuan-test-wizcli-vuln"
+  - name: wizSucceedOnFailures
+    type: boolean
+    default: false
+    
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
@@ -17,11 +38,15 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 - task: wiz@0
+  displayName: Scan directory
   inputs:
-    command: 'iac'
-    clientid: $(WIZ_CLIENT_ID)
+    command: dir
+    clientid: ${{ parameters.wizClientid}}
     secret: $(WIZ_CLIENT_SECRET)
+    succeedOnFailures: ${{ parameters.wizSucceedOnFailures}}
+    policyHitsOnly: ${{ parameters.wizPolicyHitsOnly}}
+    scanPolicies: ${{ parameters.wizScanPolicies }}
+    scanTags: directory
     wizCliPath: '/Users/thuan.dang/tmp'
-    policyHitsOnly: true
-    path: '.'
-    name: 'thuanTest'
+    path: ${{ parameters.wizPath }}
+    debug: ${{ parameters.wizDebug }}
