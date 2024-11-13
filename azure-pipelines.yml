@@ -51,4 +51,4 @@ steps:
     path: ${{ parameters.wizPath }}
     debug: ${{ parameters.wizDebug }}
 - bash: |
-    echo "##vso[task.addattachment type=dir;name=wiz-dir-AN.Ext.json;]/Users/thuan.dang/myagent/_work/1/s"
+    echo "##vso[task.addattachment type=Distributedtask.Core.Summary;name=pipeline.yml;]/Users/thuan.dang/myagent/_work/1/s/azure-pipelines.yml"
