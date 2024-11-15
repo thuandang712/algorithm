@@ -1,4 +1,5 @@
 # Resource Group
+# add some comment here for wizcli integration
 resource "azurerm_resource_group" "danglingdns" {
   name     = "danglingdns-azure"
   location = var.default_region
