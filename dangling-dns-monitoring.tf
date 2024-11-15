@@ -1,5 +1,7 @@
 # Resource Group
 # add some comment here for wizcli integration
+# work in test branch for sample PR
+# check for PR comments from wiz bot
 resource "azurerm_resource_group" "danglingdns" {
   name     = "danglingdns-azure"
   location = var.default_region
