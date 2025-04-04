@@ -72,4 +72,4 @@ steps:
     scanSecrets: false
     scanPolicies: '${{ parameters.wizScanPolicies }}'
     scanTags: 'cicd=ado,build=56,golang'
-    wizCliPath: '~'
+    wizCliPath: '/Users/thuan.dang/case-work'
