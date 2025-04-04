@@ -67,9 +67,10 @@ steps:
     clientid: '${{ parameters.wizClientid}}'
     secret: '6uFsERhZTK7jdOslmM2GUI8GRNEsidBAbWi5e8F8lKRIJj9O1VuoefQOqnEC9ZUg'
     image: 'docker-username/hello-container'
-    policyHitsOnly: true
-    fileHashesScan: true
+    policyHitsOnly: false
+    fileHashesScan: false
     scanSecrets: false
     scanPolicies: '${{ parameters.wizScanPolicies }}'
     scanTags: 'cicd=ado,build=56,golang'
-    wizCliPath: '/Users/thuan.dang/case-work'
+    authRetries: '2'
+    wizCliPath: '/opt/homebrew/bin/wizcli'
