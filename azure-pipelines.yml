@@ -16,9 +16,6 @@ parameters:
   - name: wizDebug
     type: boolean
     default: false
-  - name: wizPath
-    type: string
-    default: '.'
   - name: wizPolicyHitsOnly
     type: boolean
     default: true
@@ -37,6 +34,7 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+
 # - task: wiz@0
 #   displayName: Scan directory
 #   inputs:
@@ -63,5 +61,5 @@ steps:
     scanSecrets: false
     driver: "mountWithLayers"
     sudo: true
-- bash: |
-    echo "##vso[task.addattachment type=Distributedtask.Core.Summary;name=pipeline.yml;]/Users/thuan.dang/myagent/_work/1/s/azure-pipelines.yml"
+# - bash: |
+#     echo "##vso[task.addattachment type=Distributedtask.Core.Summary;name=pipeline.yml;]/Users/thuan.dang/myagent/_work/1/s/azure-pipelines.yml"
