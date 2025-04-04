@@ -24,7 +24,7 @@ parameters:
     default: true
   - name: wizScanPolicies
     type: string
-    default: "thuan-test-wizcli, thuan-test-wizcli-vuln"
+    default: "thuan-test-wizcli"
   - name: wizSucceedOnFailures
     type: boolean
     default: false
@@ -37,18 +37,31 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+# - task: wiz@0
+#   displayName: Scan directory
+#   inputs:
+#     command: dir
+#     clientid: ${{ parameters.wizClientid}}
+#     secret: $(WIZ_CLIENT_SECRET)
+#     succeedOnFailures: ${{ parameters.wizSucceedOnFailures}}
+#     policyHitsOnly: ${{ parameters.wizPolicyHitsOnly}}
+#     scanPolicies: ${{ parameters.wizScanPolicies }}
+#     scanTags: directory
+#     wizCliPath: '/Users/thuan.dang/tmp'
+#     path: ${{ parameters.wizPath }}
+#     debug: ${{ parameters.wizDebug }}
 - task: wiz@0
-  displayName: Scan directory
   inputs:
-    command: dir
+    command: "image"
     clientid: ${{ parameters.wizClientid}}
     secret: $(WIZ_CLIENT_SECRET)
-    succeedOnFailures: ${{ parameters.wizSucceedOnFailures}}
-    policyHitsOnly: ${{ parameters.wizPolicyHitsOnly}}
+    succeedOnFailures: false
+    policyHitsOnly: true
+    scanTags: "cicd=ado,build=56,golang"
+    image: "docker-username/hello-container"
     scanPolicies: ${{ parameters.wizScanPolicies }}
-    scanTags: directory
-    wizCliPath: '/Users/thuan.dang/tmp'
-    path: ${{ parameters.wizPath }}
-    debug: ${{ parameters.wizDebug }}
+    scanSecrets: false
+    driver: "mountWithLayers"
+    sudo: true
 - bash: |
     echo "##vso[task.addattachment type=Distributedtask.Core.Summary;name=pipeline.yml;]/Users/thuan.dang/myagent/_work/1/s/azure-pipelines.yml"
