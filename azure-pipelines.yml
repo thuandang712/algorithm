@@ -48,6 +48,19 @@ steps:
 #     wizCliPath: '/Users/thuan.dang/tmp'
 #     path: ${{ parameters.wizPath }}
 #     debug: ${{ parameters.wizDebug }}
+
+
+- task: CmdLine@2
+  inputs:
+    script: |
+      echo "##[command]Obtaining WizCLI from the inter-webs..."
+      sudo curl -o /usr/bin/wizcli https://downloads.wiz.io/wizcli/latest/wizcli-linux-amd64
+      echo "##[command]Making WizCLI executable"
+      sudo chmod +x /usr/bin/wizcli
+      /usr/bin/./wizcli auth --id ${{ parameters.wizClientid}} --secret $(WIZ_CLIENT_SECRET)
+  displayName: Download latest WizCLI and Authenticate
+
+
 - task: wiz@0
   inputs:
     command: "image"
