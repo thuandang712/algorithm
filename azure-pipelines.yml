@@ -65,7 +65,7 @@ steps:
   inputs:
     command: 'image'
     clientid: '${{ parameters.wizClientid}}'
-    secret: '$(WIZ_CLIENT_SECRET)'
+    secret: '6uFsERhZTK7jdOslmM2GUI8GRNEsidBAbWi5e8F8lKRIJj9O1VuoefQOqnEC9ZUg'
     image: 'docker-username/hello-container'
     policyHitsOnly: true
     fileHashesScan: true
