@@ -72,6 +72,4 @@ steps:
     scanSecrets: false
     scanPolicies: '${{ parameters.wizScanPolicies }}'
     scanTags: 'cicd=ado,build=56,golang'
-    wizCliPath: '.'
-# - bash: |
-#     echo "##vso[task.addattachment type=Distributedtask.Core.Summary;name=pipeline.yml;]/Users/thuan.dang/myagent/_work/1/s/azure-pipelines.yml"
+    wizCliPath: '~'
