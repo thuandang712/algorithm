@@ -73,4 +73,4 @@ steps:
     scanPolicies: '${{ parameters.wizScanPolicies }}'
     scanTags: 'cicd=ado,build=56,golang'
     authRetries: '2'
-    wizCliPath: '/opt/homebrew/bin/wizcli'
+    wizCliPath: '/opt/homebrew/bin'
