@@ -67,7 +67,7 @@ steps:
     clientid: '${{ parameters.wizClientid}}'
     secret: '6uFsERhZTK7jdOslmM2GUI8GRNEsidBAbWi5e8F8lKRIJj9O1VuoefQOqnEC9ZUg'
     image: 'docker-username/hello-container'
-    policyHitsOnly: false
+    policyHitsOnly: true
     fileHashesScan: false
     scanSecrets: false
     scanPolicies: '${{ parameters.wizScanPolicies }}'
