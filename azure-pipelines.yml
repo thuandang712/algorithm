@@ -67,10 +67,12 @@ steps:
     clientid: '${{ parameters.wizClientid}}'
     secret: '6uFsERhZTK7jdOslmM2GUI8GRNEsidBAbWi5e8F8lKRIJj9O1VuoefQOqnEC9ZUg'
     image: 'docker-username/hello-container'
-    policyHitsOnly: true
-    fileHashesScan: false
-    scanSecrets: false
+    policyHitsOnly: false
+    # fileHashesScan: false
+    succeedOnFailures: false
+    debug: true
+    sensitiveData: true
     scanPolicies: '${{ parameters.wizScanPolicies }}'
-    scanTags: 'cicd=ado,build=56,golang'
+    scanTags: 'cicd=ado'
     authRetries: '2'
     wizCliPath: '/opt/homebrew/bin'
