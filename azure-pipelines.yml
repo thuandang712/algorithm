@@ -10,9 +10,6 @@ pool:
   name: Default
 
 parameters:
-  - name: wizClientid
-    type: string
-    default: 'wgxq75hrlndpbktx3eupevf2x3zwrl6mluqfnzev2oh2a7s5zmzhg'
   - name: wizDebug
     type: boolean
     default: false
@@ -64,15 +61,16 @@ steps:
 - task: wiz@0
   inputs:
     command: 'image'
-    clientid: '${{ parameters.wizClientid}}'
-    secret: '6uFsERhZTK7jdOslmM2GUI8GRNEsidBAbWi5e8F8lKRIJj9O1VuoefQOqnEC9ZUg'
+    clientid: $(WIZ_CLIENT_ID)
+    secret: $(WIZ_CLIENT_SECRET)
     image: 'docker-username/hello-container'
-    policyHitsOnly: true
-    # fileHashesScan: false
+    policyHitsOnly: '${{ parameters.wizPolicyHitsOnly}}'
     succeedOnFailures: false
-    debug: true
-    sensitiveData: true
+    debug: false
+    sensitiveData: false
     scanPolicies: '${{ parameters.wizScanPolicies }}'
     scanTags: 'cicd=ado'
     authRetries: '2'
     wizCliPath: '/opt/homebrew/bin'
+    driver: "mountWithLayers"
+    sudo: true
