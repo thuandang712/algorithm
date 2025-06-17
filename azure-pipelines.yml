@@ -63,7 +63,7 @@ steps:
     command: 'image'
     clientid: $(WIZ_CLIENT_ID)
     secret: $(WIZ_CLIENT_SECRET)
-    image: 'docker-username/hello-container'
+    image: 'alpine:3.10'
     succeedOnFailures: false
     debug: false
     sensitiveData: false
