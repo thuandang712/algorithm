@@ -64,7 +64,6 @@ steps:
     clientid: $(WIZ_CLIENT_ID)
     secret: $(WIZ_CLIENT_SECRET)
     image: 'docker-username/hello-container'
-    policyHitsOnly: '${{ parameters.wizPolicyHitsOnly}}'
     succeedOnFailures: false
     debug: false
     sensitiveData: false
