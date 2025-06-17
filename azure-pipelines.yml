@@ -18,7 +18,7 @@ parameters:
     default: true
   - name: wizScanPolicies
     type: string
-    default: "thuan-test-wizcli"
+    default: "thuan-test-wizcli-high"
   - name: wizSucceedOnFailures
     type: boolean
     default: false
