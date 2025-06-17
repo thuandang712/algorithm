@@ -78,7 +78,7 @@ steps:
     sudo docker run -v ~/.wiz:/cli wizcli:latest version
 
     echo "Auth"
-    sudo docker run -v ~/.wiz:/cli wizcli:latest --no-style auth --id "$WIZ_CLIENT_ID" --secret "$WIZ_CLIENT_SECRET"
+    sudo docker run -v ~/.wiz:/cli wizcli:latest --no-style auth --id "$(WIZ_CLIENT_ID)" --secret "$(WIZ_CLIENT_SECRET)"
 
     echo "Running scan"
     sudo docker pull alpine:3.10
