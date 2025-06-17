@@ -24,13 +24,7 @@ parameters:
     default: false
     
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
 
 # - task: wiz@0
 #   displayName: Scan directory
@@ -76,22 +70,16 @@ steps:
 
 
 - script: |
+    displayName: 'Run wizcli scan'
+
     echo "Pulling wizcli"
-    docker pull public-registry.wiz.io/wiz-app/wizcli:0
-    docker tag public-registry.wiz.io/wiz-app/wizcli:0 wizcli:latest
-    docker run -v ~/.wiz:/cli wizcli:latest version
+    sudo docker pull public-registry.wiz.io/wiz-app/wizcli:0
+    sudo docker tag public-registry.wiz.io/wiz-app/wizcli:0 wizcli:latest
+    sudo docker run -v ~/.wiz:/cli wizcli:latest version
 
     echo "Auth"
-    docker run -v ~/.wiz:/cli wizcli:latest --no-style auth --id "$WIZ_CLIENT_ID" --secret "$WIZ_CLIENT_SECRET"
+    sudo docker run -v ~/.wiz:/cli wizcli:latest --no-style auth --id "$WIZ_CLIENT_ID" --secret "$WIZ_CLIENT_SECRET"
 
     echo "Running scan"
-    docker pull alpine:3.10
-    docker run --security-opt apparmor:unconfined --cap-add SYS_ADMIN -v /var/lib/docker:/var/lib/docker -v /var/run/docker.sock:/var/run/docker.sock -v ~/.wiz:/cli wizcli:latest --no-style docker scan --image alpine:3.10 --policy 'thuan-test-wizcli-high' --driver mountWithLayers
-    
-    # docker run \
-    #   --security-opt apparmor:unconfined \
-    #   --cap-add SYS_ADMIN \
-    #   -v /var/lib/docker:/var/lib/docker \
-    #   -v /var/run/docker.sock:/var/run/docker.sock \
-    #   -v "$(Agent.HomeDirectory)/.wiz:/cli" \
-    #   "$WIZ_CLI_IMAGE" docker scan --image "$(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_TAG)" --policy-hits-only --driver mountWithLayers
+    sudo docker pull alpine:3.10
+    sudo docker run --security-opt apparmor:unconfined --cap-add SYS_ADMIN -v /var/lib/docker:/var/lib/docker -v /var/run/docker.sock:/var/run/docker.sock -v ~/.wiz:/cli wizcli:latest --no-style docker scan --image alpine:3.10 --policy 'thuan-test-wizcli-high' --driver mountWithLayers
