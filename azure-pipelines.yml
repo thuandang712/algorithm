@@ -70,6 +70,6 @@ steps:
     scanPolicies: '${{ parameters.wizScanPolicies }}'
     scanTags: 'cicd=ado'
     authRetries: '2'
-    wizCliPath: '/opt/homebrew/bin'
+    wizCliPath: '/tmp'
     driver: "mountWithLayers"
     sudo: true
