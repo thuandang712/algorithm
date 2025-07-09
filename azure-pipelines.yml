@@ -57,7 +57,7 @@ steps:
     command: 'image'
     clientid: $(WIZ_CLIENT_ID)
     secret: $(WIZ_CLIENT_SECRET)
-    image: 'samplesecret:v4'
+    image: 'samplesecret:v5'
     succeedOnFailures: false
     debug: false
     sensitiveData: true
