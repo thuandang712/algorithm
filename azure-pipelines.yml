@@ -52,34 +52,35 @@ steps:
 #   displayName: Download latest WizCLI and Authenticate
 
 
-# - task: wiz@0
-#   inputs:
-#     command: 'image'
-#     clientid: $(WIZ_CLIENT_ID)
-#     secret: $(WIZ_CLIENT_SECRET)
-#     image: 'alpine:3.10'
-#     succeedOnFailures: false
-#     debug: false
-#     sensitiveData: false
-#     scanPolicies: '${{ parameters.wizScanPolicies }}'
-#     scanTags: 'cicd=ado'
-#     authRetries: '2'
-#     wizCliPath: '/tmp'
-#     driver: "mountWithLayers"
-#     sudo: true
+- task: wiz@0
+  inputs:
+    command: 'image'
+    clientid: $(WIZ_CLIENT_ID)
+    secret: $(WIZ_CLIENT_SECRET)
+    image: 'samplesecret:v4'
+    succeedOnFailures: false
+    debug: false
+    sensitiveData: true
+    scanSecrets: true
+    scanPolicies: '${{ parameters.wizScanPolicies }}'
+    scanTags: 'cicd=ado'
+    authRetries: '2'
+    wizCliPath: '/opt'
+    # driver: "mountWithLayers"
+    # sudo: true
 
 
-- script: |
-    displayName: 'Run wizcli scan'
+# - script: |
+#     displayName: 'Run wizcli scan'
 
-    echo "Pulling wizcli"
-    sudo docker pull public-registry.wiz.io/wiz-app/wizcli:0
-    sudo docker tag public-registry.wiz.io/wiz-app/wizcli:0 wizcli:latest
-    sudo docker run -v ~/.wiz:/cli wizcli:latest version
+#     echo "Pulling wizcli"
+#     sudo docker pull public-registry.wiz.io/wiz-app/wizcli:0
+#     sudo docker tag public-registry.wiz.io/wiz-app/wizcli:0 wizcli:latest
+#     sudo docker run -v ~/.wiz:/cli wizcli:latest version
 
-    echo "Auth"
-    sudo docker run -v ~/.wiz:/cli wizcli:latest --no-style auth --id "$(WIZ_CLIENT_ID)" --secret "$(WIZ_CLIENT_SECRET)"
+#     echo "Auth"
+#     sudo docker run -v ~/.wiz:/cli wizcli:latest --no-style auth --id "$(WIZ_CLIENT_ID)" --secret "$(WIZ_CLIENT_SECRET)"
 
-    echo "Running scan"
-    sudo docker pull alpine:3.10
-    sudo docker run --security-opt apparmor:unconfined --cap-add SYS_ADMIN -v /var/lib/docker:/var/lib/docker -v /var/run/docker.sock:/var/run/docker.sock -v ~/.wiz:/cli wizcli:latest --no-style docker scan --image alpine:3.10 --policy 'thuan-test-wizcli-high' --driver mountWithLayers
+#     echo "Running scan"
+#     sudo docker pull alpine:3.10
+#     sudo docker run --security-opt apparmor:unconfined --cap-add SYS_ADMIN -v /var/lib/docker:/var/lib/docker -v /var/run/docker.sock:/var/run/docker.sock -v ~/.wiz:/cli wizcli:latest --no-style docker scan --image alpine:3.10 --policy 'thuan-test-wizcli-high' --driver mountWithLayers
