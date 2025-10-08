@@ -26,6 +26,22 @@ parameters:
 steps:
 
 
+# - task: wiz@0
+#   displayName: Scan directory
+#   inputs:
+#     command: dir
+#     clientid: $(WIZ_CLIENT_ID)
+#     secret: $(WIZ_CLIENT_SECRET)
+#     succeedOnFailures: false
+#     scanPolicies: ${{ parameters.wizScanPolicies }}
+#     scanTags: directory
+#     wizCliPath: '/opt/homebrew/bin'
+#     path: '/Users/thuan.dang/case-work/test-secret'
+#     debug: true
+#     output: '/Users/thuan.dang/case-work/wizclisecret.json,json'
+
+
+
 - task: wiz@0
   displayName: Scan directory
   inputs:
@@ -38,10 +54,36 @@ steps:
     wizCliPath: '/opt/homebrew/bin'
     path: '/Users/thuan.dang/case-work/test-secret'
     debug: true
-    output: '/Users/thuan.dang/case-work/wizclisecret.json,json'
+    output: '/Users/thuan.dang/case-work/wizclisecret.human,human'
+
+- task: wiz@0
+  displayName: Scan directory
+  inputs:
+    command: dir
+    clientid: $(WIZ_CLIENT_ID)
+    secret: $(WIZ_CLIENT_SECRET)
+    succeedOnFailures: false
+    scanPolicies: ${{ parameters.wizScanPolicies }}
+    scanTags: directory
+    wizCliPath: '/opt/homebrew/bin'
+    path: '/Users/thuan.dang/case-work/test-secret'
+    debug: true
+    output: '/Users/thuan.dang/case-work/wizclisecret.csv-zip,csv-zip'
 
 
-
+- task: wiz@0
+  displayName: Scan directory
+  inputs:
+    command: dir
+    clientid: $(WIZ_CLIENT_ID)
+    secret: $(WIZ_CLIENT_SECRET)
+    succeedOnFailures: false
+    scanPolicies: ${{ parameters.wizScanPolicies }}
+    scanTags: directory
+    wizCliPath: '/opt/homebrew/bin'
+    path: '/Users/thuan.dang/case-work/test-secret'
+    debug: true
+    output: '/Users/thuan.dang/case-work/wizclisecret.sarif,sarif'
 
 
 # - task: wiz@0
