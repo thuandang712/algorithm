@@ -57,7 +57,7 @@ steps:
     command: 'image'
     clientid: $(WIZ_CLIENT_ID)
     secret: $(WIZ_CLIENT_SECRET)
-    image: 'samplesecret:v5'
+    image: 'samplesecret:v4'
     succeedOnFailures: false
     debug: true
     output: '/Users/thuan.dang/case-work/wizcli,json'
