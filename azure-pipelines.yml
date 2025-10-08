@@ -59,13 +59,15 @@ steps:
     secret: $(WIZ_CLIENT_SECRET)
     image: 'samplesecret:v5'
     succeedOnFailures: false
-    debug: false
+    debug: true
+    output: '/Users/thuan.dang/case-work/wizcli,json'
     sensitiveData: true
     scanSecrets: true
     scanPolicies: '${{ parameters.wizScanPolicies }}'
     scanTags: 'cicd=ado'
     authRetries: '2'
     wizCliPath: '/opt/homebrew/bin'
+    
     # driver: "mountWithLayers"
     # sudo: true
 
