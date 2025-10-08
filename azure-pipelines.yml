@@ -36,7 +36,7 @@ steps:
     scanPolicies: ${{ parameters.wizScanPolicies }}
     scanTags: directory
     wizCliPath: '/opt/homebrew/bin'
-    path: '~/case-work/test-secret'
+    path: '/Users/thuan.dang/case-work/test-secret'
     debug: true
     output: '/Users/thuan.dang/case-work/wizclisecret.json,json'
 
