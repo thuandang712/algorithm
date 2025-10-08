@@ -26,47 +26,39 @@ parameters:
 steps:
 
 
-# - task: wiz@0
-#   displayName: Scan directory
-#   inputs:
-#     command: dir
-#     clientid: ${{ parameters.wizClientid}}
-#     secret: $(WIZ_CLIENT_SECRET)
-#     succeedOnFailures: ${{ parameters.wizSucceedOnFailures}}
-#     policyHitsOnly: ${{ parameters.wizPolicyHitsOnly}}
-#     scanPolicies: ${{ parameters.wizScanPolicies }}
-#     scanTags: directory
-#     wizCliPath: '/Users/thuan.dang/tmp'
-#     path: ${{ parameters.wizPath }}
-#     debug: ${{ parameters.wizDebug }}
-
-
-# - task: CmdLine@2
-#   inputs:
-#     script: |
-#       echo "##[command]Obtaining WizCLI from the inter-webs..."
-#       sudo curl -o /usr/bin/wizcli https://downloads.wiz.io/wizcli/latest/wizcli-linux-amd64
-#       echo "##[command]Making WizCLI executable"
-#       sudo chmod +x /usr/bin/wizcli
-#       /usr/bin/./wizcli auth --id ${{ parameters.wizClientid}} --secret $(WIZ_CLIENT_SECRET)
-#   displayName: Download latest WizCLI and Authenticate
-
-
 - task: wiz@0
+  displayName: Scan directory
   inputs:
-    command: 'image'
+    command: dir
     clientid: $(WIZ_CLIENT_ID)
     secret: $(WIZ_CLIENT_SECRET)
-    image: 'samplesecret:v4'
     succeedOnFailures: false
-    debug: true
-    output: '/Users/thuan.dang/case-work/wizcli,json'
-    sensitiveData: true
-    scanSecrets: true
-    scanPolicies: '${{ parameters.wizScanPolicies }}'
-    scanTags: 'cicd=ado'
-    authRetries: '2'
+    scanPolicies: ${{ parameters.wizScanPolicies }}
+    scanTags: directory
     wizCliPath: '/opt/homebrew/bin'
+    path: '~/case-work/test-secret'
+    debug: true
+    output: '/Users/thuan.dang/case-work/wizclisecret.json,json'
+
+
+
+
+
+# - task: wiz@0
+#   inputs:
+#     command: 'image'
+#     clientid: $(WIZ_CLIENT_ID)
+#     secret: $(WIZ_CLIENT_SECRET)
+#     image: 'samplesecret:v4'
+#     succeedOnFailures: false
+#     debug: true
+#     output: '/Users/thuan.dang/case-work/wizcli,json'
+#     sensitiveData: true
+#     scanSecrets: true
+#     scanPolicies: '${{ parameters.wizScanPolicies }}'
+#     scanTags: 'cicd=ado'
+#     authRetries: '2'
+#     wizCliPath: '/opt/homebrew/bin'
     
     # driver: "mountWithLayers"
     # sudo: true
