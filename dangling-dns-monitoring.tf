@@ -4,7 +4,7 @@
 # check for PR comments from wiz bot
 resource "azurerm_resource_group" "danglingdns" {
   name     = "danglingdns-azure"
-  location = var.default_region
+  location = "West Europe"
 }
 
 # Storage Account for Function App and to store Excel exported files from script
