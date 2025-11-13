@@ -36,7 +36,7 @@ resource "azurerm_application_insights" "danglingdns" {
   location            = azurerm_resource_group.danglingdns.location
   resource_group_name = azurerm_resource_group.danglingdns.name
   application_type    = "other"
-  workspace_id        = local.log_analytics_workspace_id
+  #workspace_id        = local.log_analytics_workspace_id
 }
 
 # Service Plan for the Function App
