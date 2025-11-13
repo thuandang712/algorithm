@@ -1,1 +1,1 @@
-provider "azurerm"
+provider "azurerm" {}
