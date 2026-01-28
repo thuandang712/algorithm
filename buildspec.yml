@@ -1,10 +1,10 @@
 version: 0.2
 
 # Env section: Define environment variables or secrets
-env:
-  parameter-store:
-    WIZ_CLIENT_ID: "arn:aws:ssm:us-east-2:694251209025:parameter/CodeBuild/WIZ_CLIENT_ID"
-    WIZ_CLIENT_SECRET: "arn:aws:ssm:us-east-2:694251209025:parameter/CodeBuild/WIZ_CLIENT_SECRET"
+# env:
+#   parameter-store:
+#     WIZ_CLIENT_ID: "arn:aws:ssm:us-east-2:694251209025:parameter/CodeBuild/WIZ_CLIENT_ID"
+#     WIZ_CLIENT_SECRET: "arn:aws:ssm:us-east-2:694251209025:parameter/CodeBuild/WIZ_CLIENT_SECRET"
 phases:
   build:
     commands:
@@ -17,8 +17,8 @@ phases:
       # - docker run -v ~/.wiz:/cli wizcli:latest --no-style auth --id "$WIZ_CLIENT_ID" --secret "$WIZ_CLIENT_SECRET"
 
       - echo "Running scan"
-      - docker pull nginx:latest
-      - docker run --security-opt apparmor:unconfined --cap-add SYS_ADMIN -v /var/lib/docker:/var/lib/docker -v /var/run/docker.sock:/var/run/docker.sock -v ~/.wiz:/cli wizcli:latest scan container-image nginx:latest --driver mountWithLayers --policy 'thuan-test-wizcli-high' --client-id=$WIZ_CLIENT_ID --client-secret=$WIZ_CLIENT_SECRET
+      - docker pull public.ecr.aws/nginx/nginx:latest
+      - docker run --security-opt apparmor:unconfined --cap-add SYS_ADMIN -v /var/lib/docker:/var/lib/docker -v /var/run/docker.sock:/var/run/docker.sock -v ~/.wiz:/cli wizcli:latest scan container-image public.ecr.aws/nginx/nginx:latest --driver mountWithLayers --policy 'thuan-test-wizcli-high' --client-id=$WIZ_CLIENT_ID --client-secret=$WIZ_CLIENT_SECRET
       # - curl -o wizcli https://downloads.wiz.io/v1/wizcli/latest/wizcli-linux-amd64 && chmod +x wizcli
       # - echo "FROM ubuntu:16.04" > Dockerfile
       # - docker build . -t demoimage:01
