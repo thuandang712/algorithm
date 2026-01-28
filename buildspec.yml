@@ -1,0 +1,19 @@
+version: 0.2
+phases:
+  build:
+    commands:
+      - echo "Pulling wizcli"
+      - docker pull public-registry.wiz.io/wiz-app/wizcli:1
+      - docker tag public-registry.wiz.io/wiz-app/wizcli:1 wizcli:latest
+      - docker run -v ~/.wiz:/cli wizcli:latest version
+
+      # - echo "Auth"
+      # - docker run -v ~/.wiz:/cli wizcli:latest --no-style auth --id "$WIZ_CLIENT_ID" --secret "$WIZ_CLIENT_SECRET"
+
+      - echo "Running scan"
+      - docker pull nginx:latest
+      - docker run --security-opt apparmor:unconfined --cap-add SYS_ADMIN -v /var/lib/docker:/var/lib/docker -v /var/run/docker.sock:/var/run/docker.sock -v ~/.wiz:/cli wizcli:latest scan container-image nginx:latest --driver mountWithLayers --policy 'thuan-test-wizcli-high' --client-id=$WIZ_CLIENT_ID --client-secret=$WIZ_CLIENT_SECRET
+      # - curl -o wizcli https://downloads.wiz.io/v1/wizcli/latest/wizcli-linux-amd64 && chmod +x wizcli
+      # - echo "FROM ubuntu:16.04" > Dockerfile
+      # - docker build . -t demoimage:01
+      # - ./wizcli scan container-image demoimage:01
