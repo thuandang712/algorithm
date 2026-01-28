@@ -1,4 +1,10 @@
 version: 0.2
+
+# Env section: Define environment variables or secrets
+env:
+  parameter-store:
+    WIZ_CLIENT_ID: "arn:aws:ssm:us-east-2:694251209025:parameter/CodeBuild/WIZ_CLIENT_ID"
+    WIZ_CLIENT_SECRET: "arn:aws:ssm:us-east-2:694251209025:parameter/CodeBuild/WIZ_CLIENT_SECRET"
 phases:
   build:
     commands:
