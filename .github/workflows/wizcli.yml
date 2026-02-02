@@ -48,7 +48,7 @@ jobs:
           WIZ_CLIENT_ID: ${{ secrets.WIZ_CLIENT_ID }}
           WIZ_CLIENT_SECRET: ${{ secrets.WIZ_CLIENT_SECRET }}
         run: |
-          ./wizcli docker scan container-image \
+          ./wizcli scan container-image \
             ${{ secrets.DOCKER_HUB_USERNAME }}/pythonapp:latest \
             --dockerfile ./Dockerfile
 
