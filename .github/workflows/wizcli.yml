@@ -50,7 +50,8 @@ jobs:
         run: |
           ./wizcli scan container-image \
             ${{ secrets.DOCKER_HUB_USERNAME }}/pythonapp:latest \
-            --dockerfile ./Dockerfile
+            --dockerfile ./Dockerfile \
+            --policy 'thuan-test-wizcli-vuln'
 
       # 6. Push Docker image to Docker Hub
       - name: Push Docker image
