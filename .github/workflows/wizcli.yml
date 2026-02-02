@@ -4,7 +4,7 @@ name: 'Build and Scan with Wiz CLI'
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
     paths-ignore:
       - 'ado.yml'
